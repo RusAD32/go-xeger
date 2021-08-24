@@ -1,4 +1,4 @@
-go-xeger
+go-xeger ![](https://app.travis-ci.com/RusAD32/go-xeger.svg?branch=master)
 =====
 
 go-xeger is a golang module that generates random strings from a regular expression.
