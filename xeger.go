@@ -53,6 +53,19 @@ func NewXegerWithSeed(regex string, seed int64) (*Xeger, error) {
 }
 
 func (x *Xeger) Generate() string {
+	if x.Re == nil {
+		re, err := syntax.Parse("", syntax.Perl)
+		if err != nil {
+			panic(err) // if empty string is not a valid regex, I can't handle it
+		}
+		x.Re = re
+	}
+	if x.Src == nil {
+		x.Src = src
+	}
+	if x.Limit == 0 {
+		x.Limit = limit
+	}
 	return x.generateFromRegexp(x.Re)
 }
 
